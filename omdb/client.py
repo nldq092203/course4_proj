@@ -24,7 +24,7 @@ class OmdbMovie:
       )
 
   @property
-  def imb_id(self):
+  def imdb_id(self):
     return self.data["imdbID"]
   
   @property

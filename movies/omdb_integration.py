@@ -55,12 +55,12 @@ def search_and_save(search):
       "Search for '%s' was performed in the past 24 hours so not searching again.",
       normalized_search_term,
     )
-    return
+    # return
   
   omdb_client = get_client_from_settings()
 
   for omdb_movie in omdb_client.search(search):
-    logger.info("Saving movie: '%s' / '%s'", omdb_movie, omdb_movie.imdb_id)
+    logger.info("Saving movie: '%s' / '%s'", omdb_movie.title, omdb_movie.imdb_id)
     movie, created = Movie.objects.get_or_create(
       imdb_id = omdb_movie.imdb_id,
       defaults = {
